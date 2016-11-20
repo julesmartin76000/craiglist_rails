@@ -1,2 +1,14 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1>Listing articles for this category</h1>
+
+<table>
+  <tr>
+    <th><%=  @category.name %></th>
+  </tr>
+
+  <% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <!--   <td><%#= link_to 'Show', article_path(article) %></td> -->
+    </tr>
+  <% end %>
+</table>
