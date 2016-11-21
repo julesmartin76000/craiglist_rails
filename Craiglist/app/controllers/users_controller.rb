@@ -18,12 +18,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def edit
-  end
-
-  def udpate
-  end
-
   def delete
   end
 

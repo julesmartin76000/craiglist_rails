@@ -5,7 +5,7 @@
     <th><%=  @category.name %></th>
   </tr>
 
-  <% @items.each do |item| %>
+  <% @category.items.each do |item| %>
   <tr>
     <td><%= item.name %></td>
     <!--   <td><%#= link_to 'Show', article_path(article) %></td> -->
