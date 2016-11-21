@@ -2,12 +2,16 @@ class ItemsController < ApplicationController
 
   def new
     @category = Category.find(params[:category_id])
+    @user = User.find(session[:user_id])
+    @item = @category.items.new
   end
 
   def create
     @category = Category.find(params[:category_id])
-    @item = @category.item.new(items_params)
+    @user = User.find(session[:user_id])
+    @item = @category.items.new(item_params)
     @item.category_id = @category.id
+    @item.user_id = @user.id
     if @item.save
       redirect_to category_item_path(@category, @item)
     else
@@ -31,7 +35,7 @@ class ItemsController < ApplicationController
 
 private
 
-  def items_params
+  def item_params
     params.require(:item).permit(:name, :price, :description)
   end
 
