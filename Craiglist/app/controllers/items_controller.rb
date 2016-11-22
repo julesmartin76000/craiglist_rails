@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
     @item.category_id = @category.id
     @item.user_id = @user.id
     if @item.save
-      redirect_to category_item_path(@category, @item)
+      redirect_to category_path(@category)
     else
       redirect_to '/'
     end
