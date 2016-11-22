@@ -4,9 +4,17 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
-  resources :users
+  #Session routes
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
-  resources :categories do
+  #User routes
+  get 'signup' => 'users#new'
+
+  resources :users, except: [:index]
+
+  resources :categories, only: [:index, :show] do
     resources :items
   end
 

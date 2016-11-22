@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
+    'test'
   end
 
   def show
     @category = Category.find(params[:id])
-    @items = Item.all
   end
 
   def edit

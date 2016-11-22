@@ -5,10 +5,18 @@
     <th><%=  @category.name %></th>
   </tr>
 
-  <% @items.each do |item| %>
+  <div id="category_list">
+  <% @category.items.each do |item| %>
   <tr>
     <td><%= item.name %></td>
-    <!--   <td><%#= link_to 'Show', article_path(article) %></td> -->
+    <td><%= link_to 'Show', category_item_path(item), remote: true %></td>
+    <td><%= link_to 'Edit', edit_category_item_path(item) %></td>
+    <td><%= link_to 'Delete', category_item_path(item) %></td>
     </tr>
   <% end %>
+  </div>
+
+  <%= link_to 'New Article', new_category_item_path(@category) %>
 </table>
+
+<div id="show_item"></div>
