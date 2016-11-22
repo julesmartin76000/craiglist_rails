@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
   def show
     @category = Category.find(params[:category_id])
     @item = Item.find(params[:id])
+    respond_to do |format|
+      format.js  { render 'show' }# --> Go to packs/show.js.erb
+      format.html
+    end
   end
 
   def edit
