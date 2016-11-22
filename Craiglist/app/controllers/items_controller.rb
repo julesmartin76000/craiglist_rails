@@ -25,9 +25,19 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
+    @item = Item.find(params[:id])
   end
 
-  def udpate
+  def update
+    @category = Category.find(params[:category_id])
+    @item = Item.find(params[:id])
+
+    if @item.update(item_params)
+      redirect_to category_path(@category)
+    else 
+      redirect_to category_item_path(@item)
+    end 
   end
 
   def delete

@@ -9,6 +9,8 @@
   <tr>
     <td><%= item.name %></td>
     <td><%= link_to 'Show', category_item_path(item) %></td>
+    <td><%= link_to 'Edit', edit_category_item_path(item) %></td>
+    <td><%= link_to 'Delete', category_item_path(item) %></td>
     </tr>
   <% end %>
 
